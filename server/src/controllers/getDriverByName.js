@@ -28,7 +28,7 @@ const getDriverByName = async (req, res) => {
                     drivers.push(driverApi);
                 }
             }
-            if(drivers.length === 0) return res.status(404).json({error: "No se encontró ningun driver coincidente"});
+            if(drivers.length === 0) return res.status(404).send("No se encontró ningun driver coincidente");
             return res.status(200).json(drivers);
         } catch (error) {
             return res.status(500).json({error: error.message});

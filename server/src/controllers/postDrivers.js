@@ -1,12 +1,10 @@
 const {Driver} = require("../db");
-const imagenAleatoria = require("../auxiliares/imagenAleatoria");
 const convertirName = require("../auxiliares/convertirName");
 
 const postDrivers = async (req,res) => {
-    let {name, surname, description, nationality, birthdate, teams} = req.body;
-    if (!name || !surname || !description || !nationality || !birthdate || !teams) return res.status(400).json({error: "Faltan datos"});
+    let {name, surname, description, nationality, birthdate, image, teams} = req.body;
+    if (!name || !surname || !description || !nationality || !birthdate || !image || !teams) return res.status(400).json({error: "Faltan datos"});
 
-    const image = imagenAleatoria();
     name = convertirName(name);
     try {
         const driver = await Driver.create({

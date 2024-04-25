@@ -1,6 +1,7 @@
 const {Team} = require("../db");
 const URL = "http://localhost:5000/drivers/";
 const axios = require("axios");
+const teamsImages = require("../auxiliares/teamsImages");
 
 const getTeams = async (req,res) => {
     try {
@@ -21,7 +22,11 @@ const getTeams = async (req,res) => {
             let nameApi = teams[j];
             if(nameApi){
                 let name = nameApi.trim();
-                await Team.findOrCreate({where: {name}});
+                let image = teamsImages[name];
+                await Team.findOrCreate({
+                    where: {name},
+                    defaults: {image}
+                });
             }
         }
             const teamsDb = await Team.findAll();

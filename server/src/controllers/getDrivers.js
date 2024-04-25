@@ -5,6 +5,8 @@ const URL = "http://localhost:5000/drivers";
 
 const getDrivers = async (req, res) => {
     try {
+        const {page} = req.query;
+
         const myDrivers = await Driver.findAll({
             include: {
                 model: Team,
@@ -22,7 +24,12 @@ const getDrivers = async (req, res) => {
             apiDrivers.push(driver);
         }
         const drivers = [...myDrivers, ...apiDrivers]
-        return res.status(200).json(drivers);
+
+        const startIndex = (page - 1) * 9;
+        const endIndex = startIndex + 9;
+
+        const actualDrivers = drivers.slice(startIndex, endIndex);
+        return res.status(200).json(actualDrivers);
     } catch (error) {
         return res.status(500).json({error: error.message});
     }

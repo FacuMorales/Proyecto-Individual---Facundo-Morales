@@ -1,0 +1,6 @@
+.imagen{
+    width: 381px;
+    height: 381px;
+    object-fit: cover;
+    z-index: -1;
+}
