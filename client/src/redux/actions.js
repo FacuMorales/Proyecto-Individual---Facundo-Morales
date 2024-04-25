@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getDrivers = (page) => {
-    const endpoint = `http://localhost:3001/drivers?page=${page}`;
+export const getDrivers = () => {
+    const endpoint = "http://localhost:3001/drivers";
     return async (dispatch) => {
         const {data} = await axios(endpoint);
         return dispatch({
@@ -11,13 +11,20 @@ export const getDrivers = (page) => {
     };
 };
 
+export const homeDrivers = (drivers) => {
+    return {
+        type: "actualDrivers",
+        payload: drivers
+    };
+};
+
 export const getDriversByName = (name) => {
     const endpoint = `http://localhost:3001/name?name=${name}`;
     return async (dispatch) => {
         try {
             const {data} = await axios(endpoint);
             return dispatch({
-                type: "getDrivers",
+                type: "allDriversByName",
                 payload: data
             });
         } catch (error) {
@@ -27,6 +34,13 @@ export const getDriversByName = (name) => {
             });
         }
         
+    };
+};
+
+export const cleanDriversByName = () => {
+    return{
+        type: "allDriversByName",
+        payload: [],
     };
 };
 

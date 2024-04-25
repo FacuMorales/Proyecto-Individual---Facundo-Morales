@@ -1,4 +1,6 @@
 const initialState = {
+    allDrivers: [],
+    allDriversByName: [],
     actualDrivers : [],
     actualPage: 1,
     newDriver: {},
@@ -8,7 +10,13 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case "getDrivers":
+            return {...state, allDrivers: action.payload};
+
+        case "actualDrivers":
             return {...state, actualDrivers: action.payload};
+
+        case "allDriversByName":
+            return {...state, allDriversByName: action.payload};
 
         case "error":
             return  {...state, error: action.payload};

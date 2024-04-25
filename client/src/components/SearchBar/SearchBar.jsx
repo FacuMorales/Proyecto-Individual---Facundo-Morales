@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { datesValidation } from "../FormDates/datesValidation";
 import style from "./SearchBar.module.css";
 import { useState } from "react";
-import { actualPage, getDriversByName } from "../../redux/actions";
+import { actualPage, cleanDriversByName, getDriversByName } from "../../redux/actions";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -18,10 +18,11 @@ const SearchBar = () => {
         datesValidation(errors,setErrors,property,event.target.value);
     };
     const handleSearch = () => {
+        dispatch(actualPage(1));
         dispatch(getDriversByName(driverName.name));
-        dispatch(actualPage(0));
     };
     const reset = () =>{
+        dispatch(cleanDriversByName([]));
         dispatch(actualPage(1));
     };
     return(

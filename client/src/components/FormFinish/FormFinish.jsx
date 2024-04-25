@@ -3,18 +3,21 @@ import style from "./FormFinish.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TeamsCard from "./TeamsCard"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getDrivers } from "../../redux/actions";
 
 const FormFinish = () => {
     const [teamsData, setTeamsData] = useState([]);
     const [teams, setTeams] = useState([]);
     const newDriver = useSelector(state => state.newDriver);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const next = async () => {
         try {
             const driver = {...newDriver, teams};
             await axios.post("http://localhost:3001/drivers", driver);
+            await dispatch(getDrivers());
             navigate("/home");   
         } catch (error) {
             window.alert(error.message);
