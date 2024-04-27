@@ -6,6 +6,7 @@ const postDrivers = async (req,res) => {
     if (!name || !surname || !description || !nationality || !birthdate || !image || !teams) return res.status(400).json({error: "Faltan datos"});
 
     name = convertirName(name);
+    surname = convertirName(surname);
     try {
         const driver = await Driver.create({
             name, surname, description, nationality, birthdate, image

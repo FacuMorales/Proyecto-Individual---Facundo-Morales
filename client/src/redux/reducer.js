@@ -1,7 +1,10 @@
 const initialState = {
     allDrivers: [],
     allDriversByName: [],
+    allDriversByOrder: [],
     actualDrivers : [],
+    selectedOption: "",
+    order: "asc",
     actualPage: 1,
     newDriver: {},
     error: "",
@@ -17,6 +20,15 @@ const rootReducer = (state = initialState, action) => {
 
         case "allDriversByName":
             return {...state, allDriversByName: action.payload};
+
+        case "allDriversByOrder":
+            return {...state, allDriversByOrder: action.payload};
+
+        case "changeOption":
+            return {...state, selectedOption: action.payload};
+
+        case "changeOrder":
+            return {...state, order: action.payload};
 
         case "error":
             return  {...state, error: action.payload};

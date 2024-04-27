@@ -8,6 +8,7 @@ const Home = () => {
     const page = useSelector((state) => state.actualPage);
     const allDrivers = useSelector((state) => state.allDrivers);
     const allDriversByName = useSelector((state) => state.allDriversByName);
+    const allDriversByOrder = useSelector((state) => state.allDriversByOrder);
     const actualDrivers = useSelector((state) => state.actualDrivers);
     const dispatch = useDispatch();
 
@@ -17,11 +18,16 @@ const Home = () => {
         if(allDriversByName.length>=1){
             const drivers = allDriversByName.slice(startIndex, endIndex);
             dispatch(homeDrivers(drivers));
-        }else{
+        }
+        if(allDriversByOrder.length>=1){
+            const drivers = allDriversByOrder.slice(startIndex, endIndex);
+            dispatch(homeDrivers(drivers));
+        }
+        if(allDriversByName.length===0 && allDriversByOrder.length===0){
             const drivers = allDrivers.slice(startIndex, endIndex);
             dispatch(homeDrivers(drivers));
         }
-    }, [page, allDriversByName, allDrivers]);
+    }, [page, allDriversByName, allDrivers, allDriversByOrder]);
 
     const prevPage = () => {
         if(page===1) return;

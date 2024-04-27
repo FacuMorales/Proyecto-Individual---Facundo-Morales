@@ -44,6 +44,27 @@ export const cleanDriversByName = () => {
     };
 };
 
+export const getDriversByOrder = (drivers) => {
+    return{
+        type: "allDriversByOrder",
+        payload: drivers,
+    };
+};
+
+export const changeOption = (option) => {
+    return{
+        type: "changeOption",
+        payload: option,
+    };
+};
+
+export const changeOrder = (order) => {
+    return{
+        type: "changeOrder",
+        payload: order,
+    };
+};
+
 export const cleanError = () => {
     return{
         type: "error",

@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { datesValidation } from "../FormDates/datesValidation";
 import style from "./SearchBar.module.css";
 import { useState } from "react";
-import { actualPage, cleanDriversByName, getDriversByName } from "../../redux/actions";
+import { actualPage, getDriversByName, getDriversByOrder } from "../../redux/actions";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -19,11 +19,8 @@ const SearchBar = () => {
     };
     const handleSearch = () => {
         dispatch(actualPage(1));
+        dispatch(getDriversByOrder([]));
         dispatch(getDriversByName(driverName.name));
-    };
-    const reset = () =>{
-        dispatch(cleanDriversByName([]));
-        dispatch(actualPage(1));
     };
     return(
         <div className={style.container}>
@@ -31,7 +28,6 @@ const SearchBar = () => {
             <input type="text" id="name" name="name" value={driverName.name} onChange={handleChange} placeholder="Lewis"/>
             <span >{errors.name}</span>
             <button onClick={handleSearch}>Buscar</button>
-            <button onClick={reset}>Reset</button>
         </div>
     );
 };
