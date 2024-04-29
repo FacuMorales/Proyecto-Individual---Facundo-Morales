@@ -4,6 +4,7 @@ const initialState = {
     allDriversByOrder: [],
     actualDrivers : [],
     selectedOption: "",
+    selectedFilter: "",
     order: "asc",
     actualPage: 1,
     newDriver: {},
@@ -23,6 +24,9 @@ const rootReducer = (state = initialState, action) => {
 
         case "allDriversByOrder":
             return {...state, allDriversByOrder: action.payload};
+
+        case "changeFilter":
+            return {...state, selectedFilter: action.payload};
 
         case "changeOption":
             return {...state, selectedOption: action.payload};

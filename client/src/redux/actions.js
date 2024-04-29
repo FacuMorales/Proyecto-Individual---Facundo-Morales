@@ -51,6 +51,13 @@ export const getDriversByOrder = (drivers) => {
     };
 };
 
+export const changeFilter = (filter) => {
+    return{
+        type: "changeFilter",
+        payload: filter,
+    };
+};
+
 export const changeOption = (option) => {
     return{
         type: "changeOption",
