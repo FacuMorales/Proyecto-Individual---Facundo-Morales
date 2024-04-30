@@ -1,5 +1,6 @@
 const initialState = {
     allDrivers: [],
+    allTeams: [],
     allDriversByName: [],
     allDriversByOrder: [],
     actualDrivers : [],
@@ -15,6 +16,9 @@ const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case "getDrivers":
             return {...state, allDrivers: action.payload};
+
+        case "getTeams":
+            return {...state, allTeams: action.payload};
 
         case "actualDrivers":
             return {...state, actualDrivers: action.payload};

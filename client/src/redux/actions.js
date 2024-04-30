@@ -11,6 +11,17 @@ export const getDrivers = () => {
     };
 };
 
+export const getTeams = () => {
+    const endpoint = "http://localhost:3001/teams";
+    return async (dispatch) => {
+        const {data} = await axios(endpoint);
+        return dispatch({
+            type: "getTeams",
+            payload: data
+        });
+    };
+};
+
 export const homeDrivers = (drivers) => {
     return {
         type: "actualDrivers",

@@ -9,13 +9,14 @@ import FormNationality from "./components/FormNationality/FormNationality.jsx";
 import FormImage from "./components/FormImage/FormImage.jsx";
 import FormFinish from "./components/FormFinish/FormFinish.jsx";
 import { useDispatch } from "react-redux";
-import { getDrivers } from "./redux/actions.js";
+import { getDrivers, getTeams } from "./redux/actions.js";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(getDrivers());
+    dispatch(getTeams());
   },[]);
 
   return (

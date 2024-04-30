@@ -20,16 +20,13 @@ const Nav = () => {
     // }, [order, selectedOption, selectedFilter]);
 
     const handleChangeOption = (event) => {
-        let selectedValue = event.target.value;
+        const selectedValue = event.target.value;
         dispatch(changeOption(selectedValue));
     };
 
-    const ascOrder = () => {
-        dispatch(changeOrder("asc"));
-    };
-
-    const descOrder = () => {
-        dispatch(changeOrder("desc"));
+    const handleChangeOrder = (event) => {
+        const order = event.target.value;
+        dispatch(changeOrder(order));
     };
 
     const handleChangeFilter = (event) => {
@@ -46,7 +43,6 @@ const Nav = () => {
         if(selectedFilter==="api"){
             const driversFiltered = allDriversCopy.filter(driver => !/[a-zA-Z]/.test(driver.id));
             allDriversCopy = [...driversFiltered];
-            console.log("hola");
         };
         if(selectedFilter==="bdd"){
             const driversFiltered = allDriversCopy.filter(driver => /[a-zA-Z]/.test(driver.id));
@@ -93,24 +89,18 @@ const Nav = () => {
             </Link>
 
             <select value={selectedOption} onChange={handleChangeOption}>
-                <option value="">Ordernar por:</option>
+                <option value="">Ordernar según:</option>
                 <option value="alfabetico">Orden alfabetico</option>
                 <option value="fecha">Fecha de nacimiento</option>
             </select>
-            {(selectedOption) ? (
-                <div>
-                    <button onClick={ascOrder}>Ascendente</button>
-                    <button onClick={descOrder}>Descendente</button>
-                </div>
-            ) : (
-                <div>
-                    <button disabled>Ascendente</button>
-                    <button disabled>Descendente</button>
-                </div>
-            )}
-
+            
+            <select value={order} onChange={handleChangeOrder}>
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+            
             <select value={selectedFilter} onChange={handleChangeFilter}>
-                <option value="">Filtrar por:</option>
+                <option value="">Todos</option>
                 <option value="api">Api Drivers</option>
                 <option value="bdd">Tus Drivers</option>
             </select>

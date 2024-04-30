@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDrivers } from "../../redux/actions";
 
 const FormFinish = () => {
-    const [teamsData, setTeamsData] = useState([]);
     const [teams, setTeams] = useState([]);
     const newDriver = useSelector(state => state.newDriver);
+    const teamsData = useSelector(state => state.allTeams);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -23,18 +23,6 @@ const FormFinish = () => {
             window.alert(error.message);
         }
     };
-
-    const URL = "http://localhost:3001/teams";
-    useEffect(() => {
-        try {
-            axios(URL).then(({data})=>{
-                setTeamsData(data);
-            });
-        } catch (error) {
-            window.alert(error.message);
-        }
-        
-    },[]);
 
     return(
         <>
