@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import style from "./FormFinish.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import TeamsCard from "./TeamsCard"
 import { useDispatch, useSelector } from "react-redux";

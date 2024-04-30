@@ -69,6 +69,13 @@ export const changeFilter = (filter) => {
     };
 };
 
+export const changeTeam = (team) => {
+    return{
+        type: "changeTeam",
+        payload: team,
+    };
+};
+
 export const changeOption = (option) => {
     return{
         type: "changeOption",
@@ -83,10 +90,10 @@ export const changeOrder = (order) => {
     };
 };
 
-export const cleanError = () => {
+export const getError = (error) => {
     return{
         type: "error",
-        payload: "",
+        payload: error,
     };
 };
 

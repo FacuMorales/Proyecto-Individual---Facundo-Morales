@@ -1,15 +1,14 @@
 import Nav from "../../components/Nav/Nav";
 import Cards from "../../components/Cards/Cards";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { actualPage, getDrivers, homeDrivers } from "../../redux/actions";
+import { actualPage, homeDrivers } from "../../redux/actions";
 
 const Home = () => {
     const page = useSelector((state) => state.actualPage);
     const allDrivers = useSelector((state) => state.allDrivers);
     const allDriversByName = useSelector((state) => state.allDriversByName);
     const allDriversByOrder = useSelector((state) => state.allDriversByOrder);
-    const actualDrivers = useSelector((state) => state.actualDrivers);
     const dispatch = useDispatch();
 
     useEffect(()=>{

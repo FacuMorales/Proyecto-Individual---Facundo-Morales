@@ -1,7 +1,7 @@
 import style from "./Cards.module.css";
 import Card from "../Card/Card";
 import {useDispatch, useSelector} from 'react-redux';
-import { cleanError } from "../../redux/actions";
+import { getError } from "../../redux/actions";
 
 const Cards = () => {
     const drivers = useSelector((state) => state.actualDrivers);
@@ -10,7 +10,7 @@ const Cards = () => {
 
     if(error){
         window.alert(error.response.data);
-        dispatch(cleanError());
+        dispatch(getError(""));
     } 
 
     return(

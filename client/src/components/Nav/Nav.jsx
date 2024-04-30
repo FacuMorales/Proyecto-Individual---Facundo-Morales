@@ -2,22 +2,16 @@ import style from "./Nav.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
-import { useState, useEffect } from "react";
-import { actualPage, cleanDriversByName, getDriversByOrder, changeOption, changeOrder, changeFilter } from "../../redux/actions";
+import { actualPage, cleanDriversByName, getDriversByOrder, changeOption, changeOrder, changeFilter, changeTeam, getError } from "../../redux/actions";
 
 const Nav = () => {
     const allDrivers = useSelector((state) => state.allDrivers);
     const allDriversByName = useSelector((state) => state.allDriversByName);
     const selectedOption = useSelector((state) => state.selectedOption);
     const selectedFilter = useSelector((state) => state.selectedFilter);
+    const selectedTeam = useSelector((state) => state.selectedTeam);
     const order = useSelector((state) => state.order);
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     if(!selectedOption) return;
-    //     handleChangeOption({ target: { value: selectedOption } });
-    //     handleChangeFilter({ target: { value: selectedFilter } });
-    // }, [order, selectedOption, selectedFilter]);
 
     const handleChangeOption = (event) => {
         const selectedValue = event.target.value;
@@ -49,6 +43,13 @@ const Nav = () => {
             allDriversCopy = [...driversFiltered];
         };
 
+        if(selectedTeam){
+            const driversFiltered = allDriversCopy.filter(driver =>
+                driver.Teams.some(team => team.name === selectedTeam)
+            );
+            allDriversCopy = [...driversFiltered];
+        };
+
         if(selectedOption==="alfabetico"){
             drivers = allDriversCopy.sort((a, b) => {
                 const surnameA = a.surname.toLowerCase();
@@ -67,8 +68,14 @@ const Nav = () => {
         };
         if(!selectedOption) drivers = allDriversCopy;
 
+        if(drivers.length===0) return window.alert("No hay drivers coincidentes");
+
         dispatch(actualPage(1));
         dispatch(getDriversByOrder(drivers));
+    };
+
+    const cleanTeam = () => {
+        dispatch(changeTeam(""));
     };
  
     const reset = () =>{
@@ -76,7 +83,9 @@ const Nav = () => {
         dispatch(getDriversByOrder([]));
         dispatch(changeOption(""));
         dispatch(changeFilter(""));
+        dispatch(changeTeam(""));
         dispatch(changeOrder("asc"));
+        dispatch(getError(""));
         dispatch(actualPage(1));
     };
 
@@ -104,6 +113,11 @@ const Nav = () => {
                 <option value="api">Api Drivers</option>
                 <option value="bdd">Tus Drivers</option>
             </select>
+
+            <Link to={"/team"}>
+                <button onClick={cleanTeam}>Elegir Team</button>
+            </Link>
+                <span>Team seleccionado: {selectedTeam}</span>
 
             <button onClick={apply}>Aplicar</button>
             <button onClick={reset}>Reset</button>
