@@ -25,11 +25,12 @@ const FormFinish = () => {
     };
 
     return(
-        <>
-            <h1>Creador de driver</h1>
-            <h1>FormFinish</h1>
+        <div className={style.container}>
+            <h1 className={style.titulo}>Driver Creator</h1>
+            <div></div>
+            <h1 className={style.tituloPage}>Teams:</h1>
 
-            <div className={style.container}>
+            <div className={style.teams}>
             {
                 teamsData.map(team=>{
                     return(
@@ -45,13 +46,14 @@ const FormFinish = () => {
                 })
             }
             </div>
-
+            <div className={style.botonContainer}>
             {(teams.length>=1) ? (
-                <button onClick={next} >Finalizar</button>
+                <button onClick={next} className={style.boton}>Finalizar</button>
             ) : (
-                <button disabled>Finalizar</button>
+                <button disabled className={style.boton}>Finalizar</button>
             )}
-        </>
+            </div>
+        </div>
     );
 };
 

@@ -34,34 +34,45 @@ const FormDates = () => {
     };
 
     return(
-        <>
-            <h1>Creador de driver</h1>
-            <h1>FormDates</h1>
-            <form onSubmit={handleSubmit}>
+        <div className={style.container}>
+            <h1 className={style.titulo}>Driver Creator</h1>
+            <div></div>
+            <h1 className={style.tituloPage}>Dates:</h1>
+            <div></div>
+            <form onSubmit={handleSubmit} className={style.datesContainer}>
+                <div className={style.searchContainer}>
+                <label htmlFor="name" >Nombre: </label>
+                <input type="text" id="name" name="name"  value={driverData.name} onChange={handleChange} placeholder="Lewis" className={style.search}/>
+                <span className={style.span}>{errors.name}</span>
+                </div>
 
-                <label htmlFor="name" >Nombre:</label>
-                <input type="text" id="name" name="name"  value={driverData.name} onChange={handleChange} placeholder="Lewis"/>
-                <span >{errors.name}</span>
+                <div className={style.searchContainer}>
+                <label htmlFor="surname" >Apellido: </label>
+                <input type="text" id="surname" name="surname"  value={driverData.surname} onChange={handleChange} placeholder="Hamilton" className={style.search}/>
+                <span className={style.span}>{errors.surname}</span>
+                </div>
 
-                <label htmlFor="surname" >Apellido:</label>
-                <input type="text" id="surname" name="surname"  value={driverData.surname} onChange={handleChange} placeholder="Hamilton"/>
-                <span >{errors.surname}</span>
+                <div className={style.searchContainer}>
+                <label htmlFor="birthdate" >Fecha de nacimiento: </label>
+                <input type="date" id="birthdate" name="birthdate"  value={driverData.birthdate} onChange={handleChange} placeholder="01-01-01" className={style.search}/>
+                <span className={style.span}>{errors.birthdate}</span>
+                </div>
 
-                <label htmlFor="birthdate" >Fecha de nacimiento:</label>
-                <input type="date" id="birthdate" name="birthdate"  value={driverData.birthdate} onChange={handleChange} placeholder="01-01-01"/>
-                <span >{errors.birthdate}</span>
+                <div className={style.searchContainer}>
+                <label htmlFor="description" >Descripcion: </label>
+                <input type="text" id="description" name="description"  value={driverData.description} onChange={handleChange} placeholder="..." className={style.search}/>
+                <span className={style.span}>{errors.description}</span>
+                </div>
 
-                <label htmlFor="description" >Descripcion:</label>
-                <input type="text" id="description" name="description"  value={driverData.description} onChange={handleChange} placeholder="..."/>
-                <span >{errors.description}</span>
-
+                <div className={style.botonContainer}>
                 {(!errors.name && !errors.surname && !errors.birthdate && !errors.description && driverData.name && driverData.surname && driverData.birthdate && driverData.description) ? (
-                    <button type="submit" >Siguiente</button>
+                    <button type="submit" className={style.boton}>Siguiente</button>
                 ) : (
-                    <button type="submit" disabled>Siguiente</button>
+                    <button type="submit" disabled className={style.boton}>Siguiente</button>
                 )}
+                </div>
             </form>
-        </>
+        </div>
     );
 };
 

@@ -1,10 +1,11 @@
 .boton{
     padding: 10px;
     border-radius: 8px;
-    border: 2px solid black;
-    background-color: rgb(147, 226, 240);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgba(241, 49, 49, 0.952);
     font-style: italic;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
 }
 
 .imagen{
@@ -18,10 +19,32 @@
 }
 
 .container{
-    background-color: aqua;
+    padding: 12px;
+    background-color: rgba(95, 94, 94, 0.979);
     text-align: center;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 8px;
+    border: 2px solid black;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.flecha{
+    display: block;
+    margin-left: 440px;
+    margin-bottom: 5px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(270deg);
+}
+
+.auto{
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    margin-left: 244px;
+    margin-top: 12px;
 }

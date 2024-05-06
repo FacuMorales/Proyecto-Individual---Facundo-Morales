@@ -18,20 +18,31 @@ const Detail = () => {
      }, [id]);
 
     return(
-        <div>
-            <h1>Detail</h1>
-            <Link to={"/home"}>
-                <button>Volver</button>
-            </Link>
-            <img src={character.image} className={style.imagen}/>
-            <h2>{character.name} {character.surname}</h2>
-            <h2>{character.description}</h2>
-            <h2>{character.nationality}</h2>
-            <h2>{character.birthdate}</h2>
-            <div>
-                {character.Teams && character.Teams.map(team => (
-                    <h2 key={team.name}>{team.name}</h2>
-                ))}
+        <div className={style.container}>
+            <nav className={style.nav}>
+                <Link to={"/home"}>
+                    <button className={style.boton}>Volver</button>
+                </Link>
+            </nav>
+            <div className={style.allContainer}>
+                <img src={character.image} className={style.imagen}/>
+                <div className={style.infoContainer}>
+                    <h1 className={style.name}>{character.name} {character.surname}</h1>
+                    <h2>{character.description}</h2>
+                    <hr/>
+                    <div className={style.dataContainer}>
+                        <div>
+                            <h2>Nationility: {character.nationality}</h2>
+                            <h2>Birthdate: {character.birthdate}</h2>
+                        </div>
+                        <div className={style.teams}>
+                            <h2>Teams:</h2>
+                            {character.Teams && character.Teams.map(team => (
+                                <h2 key={team.name}>{team.name}</h2>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

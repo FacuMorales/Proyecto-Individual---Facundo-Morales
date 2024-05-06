@@ -1,7 +1,12 @@
 .container{
-    background-color:aqua;
+    background-color: rgba(241, 51, 51, 0.932);
     width: 381px;
     height: 100%;
+    margin-left: 110px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+    
 }
 
 .imagen{
@@ -9,8 +14,9 @@
     height: 381px;
     object-fit: cover;
     z-index: -1;
+    border-radius: 8px;
 }
 
 .link{
-    color: blue;
+    color: rgba(84, 49, 241, 0.952);
 }

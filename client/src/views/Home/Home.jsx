@@ -1,3 +1,4 @@
+import style from "./Home.module.css"
 import Nav from "../../components/Nav/Nav";
 import Cards from "../../components/Cards/Cards";
 import { useEffect } from "react";
@@ -12,19 +13,25 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
+        window.scrollTo(0, 0);
         const startIndex = (page - 1) * 9;
         const endIndex = startIndex + 9;
+        let drivers = [];
         if(allDriversByName.length>=1){
-            const drivers = allDriversByName.slice(startIndex, endIndex);
+            drivers = allDriversByName.slice(startIndex, endIndex);
             dispatch(homeDrivers(drivers));
         }
         if(allDriversByOrder.length>=1){
-            const drivers = allDriversByOrder.slice(startIndex, endIndex);
+            drivers = allDriversByOrder.slice(startIndex, endIndex);
             dispatch(homeDrivers(drivers));
         }
         if(allDriversByName.length===0 && allDriversByOrder.length===0){
-            const drivers = allDrivers.slice(startIndex, endIndex);
+            drivers = allDrivers.slice(startIndex, endIndex);
             dispatch(homeDrivers(drivers));
+        }
+        if(drivers.length===0){
+            window.alert("No hay mas drivers para mostrar");
+            dispatch(actualPage(page-1));
         }
     }, [page, allDriversByName, allDrivers, allDriversByOrder]);
 
@@ -33,17 +40,26 @@ const Home = () => {
         return dispatch(actualPage(page-1));
     };
     const nextPage = () => {
-        return dispatch(actualPage(page + 1));
+        dispatch(actualPage(page + 1));
     };
     
     return(
-        <div>
+        <div className={style.container} >
             <Nav></Nav>
-            <h1>Home</h1>
+            <div className={style.buttonContainer}>
+                <span className={style.pageContainer}>{page-1}</span>
+                <button onClick={prevPage} className={style.boton}>{"<<< anterior"}</button>
+                <span className={style.pageContainer}>{page}</span>
+                <button onClick={nextPage} className={style.boton}>{"siguiente >>>"}</button>
+                <span className={style.pageContainer}>{page+1}</span>
+            </div>
             <Cards/>
-            <div>
-                <button onClick={prevPage}>anterior</button>
-                <button onClick={nextPage}>siguiente</button>
+            <div className={style.buttonContainer}>
+                <span className={style.pageContainer}>{page-1}</span>
+                <button onClick={prevPage} className={style.boton}>{"<<< anterior"}</button>
+                <span className={style.pageContainer}>{page}</span>
+                <button onClick={nextPage} className={style.boton}>{"siguiente >>>"}</button>
+                <span className={style.pageContainer}>{page+1}</span>
             </div>
         </div>
     );

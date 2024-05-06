@@ -1,4 +1,5 @@
 import style from "./Nav.module.css";
+import formula from "../../views/Landing/formula.png"
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
@@ -91,36 +92,56 @@ const Nav = () => {
 
     return(
         <nav className={style.container}>
-            <h2>NavBar</h2>
-            <SearchBar></SearchBar>
-            <Link to={"/form"}>
-                <button>Form</button>
-            </Link>
 
-            <select value={selectedOption} onChange={handleChangeOption}>
-                <option value="">Ordernar según:</option>
-                <option value="alfabetico">Orden alfabetico</option>
-                <option value="fecha">Fecha de nacimiento</option>
-            </select>
-            
-            <select value={order} onChange={handleChangeOrder}>
-                <option value="asc">Ascendente</option>
-                <option value="desc">Descendente</option>
-            </select>
-            
-            <select value={selectedFilter} onChange={handleChangeFilter}>
-                <option value="">Todos</option>
-                <option value="api">Api Drivers</option>
-                <option value="bdd">Tus Drivers</option>
-            </select>
+            <div className={style.tituloContainer}>
+                <h2 className={style.titulo}>Proyecto Individual Drivers</h2>
+                <img src={formula} className={style.auto}/>
+            </div>
 
-            <Link to={"/team"}>
-                <button onClick={cleanTeam}>Elegir Team</button>
-            </Link>
-                <span>Team seleccionado: {selectedTeam}</span>
+            <div className={style.actionsContainer}>
+                
+                <select value={selectedOption} onChange={handleChangeOption} className={style.filter}>
+                    <option value="">Ordernar según:</option>
+                    <option value="alfabetico">Orden alfabetico</option>
+                    <option value="fecha">Fecha de nacimiento</option>
+                </select>
+                
+                <select value={order} onChange={handleChangeOrder} className={style.filter}>
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
+                </select>
+                
+                <select value={selectedFilter} onChange={handleChangeFilter} className={style.filter}>
+                    <option value="">Todos</option>
+                    <option value="api">Api Drivers</option>
+                    <option value="bdd">Tus Drivers</option>
+                </select>
 
-            <button onClick={apply}>Aplicar</button>
-            <button onClick={reset}>Reset</button>
+                <div className={style.teamSearchForm}>
+                    <div >
+                        <Link to={"/form"}>
+                            <button  className={style.form}>Crea tu Driver</button>
+                        </Link>
+                    </div>
+
+                    <div className={style.team}>
+                        <Link to={"/team"}>
+                            <button onClick={cleanTeam} className={style.boton} >Elegir Team</button>
+                        </Link>
+                            <span className={style.teamSpan}>Team seleccionado: {selectedTeam}</span>
+                    </div>
+
+                    <div className={style.search}>
+                        <SearchBar></SearchBar>
+                    </div>
+                </div>
+
+                <div className={style.applyReset}>
+                    <button onClick={apply} className={style.apply} >Aplicar</button>
+                    <button onClick={reset} className={style.boton} >Reset</button>
+                </div>
+
+            </div>
         </nav>
     );
 };

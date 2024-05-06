@@ -1,0 +1,75 @@
+.container{
+    background-image: url('https://www.wsupercars.com/wallpapers-regular/Formula-1/Red-Bull-Racing/2023-Formula1-Red-Bull-Racing-RB19-001-2160.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: aliceblue;
+}
+
+.boton{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(241, 49, 49, 0.952);
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.botonContainer{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.titulo{
+    display: inline-block;
+    background-color: rgba(241, 51, 51, 0.685);
+    padding: 4px;
+    border-radius: 12px;
+    border: 5px ridge rgba(112, 0, 0, 0.952);
+}
+
+.tituloPage{
+    display: inline-block;
+    background-color: rgba(138, 138, 138, 0.849);
+    padding: 4px;
+    border-radius: 12px;
+    margin-top: 150px;
+}
+
+.datesContainer{
+    display: inline-block;
+    background-color: rgba(138, 138, 138, 0.849);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left
+}
+
+.search{
+    border: 1px solid #000000;
+    border-radius: 8px;
+    font-size: 16px;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.searchContainer{
+    background-color: rgba(95, 95, 95, 0.849);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: block;
+}
+
+.span{
+    text-align: center;
+    display: block;
+    color: red;
+    margin-top: 8px;
+}

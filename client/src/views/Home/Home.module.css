@@ -1,0 +1,36 @@
+.container{
+    background-image: url('https://www.wsupercars.com/wallpapers-regular/Formula-1/Scuderia-Ferrari/2023-Formula1-Ferrari-SF-23-002-2000.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.boton{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(84, 49, 241, 0.952);
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.buttonContainer{
+    text-align: center;
+    background-color: rgba(138, 138, 138, 0.849);
+    padding: 15px;
+    margin-top: 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.pageContainer{
+    background-color: rgb(112, 112, 112);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+}

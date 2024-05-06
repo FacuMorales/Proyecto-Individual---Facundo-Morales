@@ -27,10 +27,9 @@ const SearchBar = () => {
     };
     return(
         <div className={style.container}>
-            <h2>SearchBar</h2>
-            <input type="text" id="name" name="name" value={driverName.name} onChange={handleChange} placeholder="Lewis"/>
+            <input type="text" id="name" name="name" value={driverName.name} onChange={handleChange} className={style.search} placeholder="🔍Nombre"/>
             <span >{errors.name}</span>
-            <button onClick={handleSearch}>Buscar</button>
+            <button onClick={handleSearch} className={style.boton} >Buscar</button>
         </div>
     );
 };

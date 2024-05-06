@@ -1,8 +1,9 @@
 .container{
-    background-color:aqua;
+    background-color: rgba(177, 32, 32, 0.952);
     width: 281px;
     height: 100%;
     cursor: pointer;
+    color: black;
 }
 
 .imagen{

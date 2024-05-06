@@ -11,11 +11,12 @@ const FormImage = () => {
         navigate("/form/finish");
     };
     return(
-        <>
-            <h1>Creador de driver</h1>
-            <h1>FormImage</h1>
+        <div className={style.container}>
+            <h1 className={style.titulo}>Driver Creator</h1>
+            <div></div>
+            <h1 className={style.tituloPage}>Image:</h1>
 
-            <div className={style.container}>
+            <div className={style.image}>
             {
                 images.map(image=>{
                     return(
@@ -28,12 +29,14 @@ const FormImage = () => {
             }
             </div>
 
+            <div className={style.botonContainer}>
             {(img) ? (
-                <button onClick={next} >Siguiente</button>
+                <button onClick={next} className={style.boton}>Siguiente</button>
             ) : (
-                <button disabled>Siguiente</button>
+                <button disabled className={style.boton}>Siguiente</button>
             )}
-        </>
+            </div>
+        </div>
     );
 };
 

@@ -1,6 +1,47 @@
 .container{
-    background-color: chocolate;
+    background-image: url('https://www.wsupercars.com/wallpapers-regular/Formula-1/Red-Bull-Racing/2023-Formula1-Red-Bull-Racing-RB19-001-2160.jpg');
+    background-size:contain;
+    background-position: center;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: aliceblue;
+}
+
+.titulo{
+    display: inline-block;
+    background-color: rgba(241, 51, 51, 0.685);
+    padding: 4px;
+    border-radius: 12px;
+    border: 5px ridge rgba(112, 0, 0, 0.952);
+}
+
+.tituloPage{
+    display: inline-block;
+    background-color: rgba(138, 138, 138, 0.849);
+    padding: 4px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.boton{
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(241, 49, 49, 0.952);
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+}
+
+.botonContainer{
+    padding: 20px;
+}
+
+.teams{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
+    margin-left: 57px;
 }

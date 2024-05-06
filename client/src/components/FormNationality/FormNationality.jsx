@@ -11,9 +11,10 @@ const FormNationality = () => {
         navigate("/form/image");
     };
     return(
-        <>
-            <h1>Creador de driver</h1>
-            <h1>FormNationality</h1>
+        <div className={style.container}>
+            <h1 className={style.titulo}>Driver Creator</h1>
+            <div></div>
+            <h1 className={style.tituloPage}>Nationality:</h1>
             <div className={style.countries}>
             {
                 countries.map(country=>{
@@ -28,13 +29,14 @@ const FormNationality = () => {
                 })
             }
             </div>
-
+            <div className={style.botonContainer}>
             {(nationality) ? (
-                <button onClick={next} >Siguiente</button>
+                <button onClick={next} className={style.boton}>Siguiente</button>
             ) : (
-                <button disabled>Siguiente</button>
+                <button disabled className={style.boton}>Siguiente</button>
             )}
-        </>
+            </div>
+        </div>
     );
 };
 

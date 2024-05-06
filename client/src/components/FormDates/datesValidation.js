@@ -2,13 +2,13 @@ export const datesValidation = (errors, setErrors, property, value) => {
     switch(property){
         case "name":
             if(value.length === 0) return setErrors({...errors, name: "Nombre vacio"});
-            if(!/^[a-zA-Z\s]+$/.test(value)) return setErrors({...errors, name: "El nombre no debe incluir numeros, simbolos o espacios"});
+            if(!/^[a-zA-Z]+$/.test(value)) return setErrors({...errors, name: "El nombre no debe incluir numeros, simbolos o espacios"});
             if(value.length > 20) return setErrors({...errors, name: "El nombre no puede tener mas de 20 caracteres"});
             return setErrors({...errors, name: ""});
 
         case "surname":
             if(value.length === 0) return setErrors({...errors, surname: "Apellido vacio"});
-            if(!/^[a-zA-Z\s]+$/.test(value)) return setErrors({...errors, surname: "El apellido no debe incluir numeros, simbolos o espacios"});
+            if(!/^[a-zA-Z]+$/.test(value)) return setErrors({...errors, surname: "El apellido no debe incluir numeros, simbolos o espacios"});
             if(value.length > 20) return setErrors({...errors, surname: "El apellido no puede tener mas de 20 caracteres"});
             return setErrors({...errors, surname: ""});
 

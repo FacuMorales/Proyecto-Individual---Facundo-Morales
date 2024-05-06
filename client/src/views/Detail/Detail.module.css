@@ -1,6 +1,65 @@
-.imagen{
-    width: 381px;
-    height: 381px;
+.container{
+    background-image: url('https://www.wsupercars.com/wallpapers-regular/Formula-1/Williams/2022-Formula1-Williams-FW44-004-1536.jpg');
+    position: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    z-index: -1;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: aliceblue;
+}
+
+.imagen{
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 1000px;
+    border: 5px ridge rgba(241, 49, 49, 0.952);
+    margin-left: 80px;
+}
+
+.boton{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(241, 49, 49, 0.952);
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.nav{
+    background-color: rgba(138, 138, 138, 0.849);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.allContainer{
+    display: flex;
+    margin-top: 50px;
+}
+
+.name{
+    text-decoration: underline;
+    text-decoration-color: rgba(241, 49, 49, 0.952);
+}
+
+.infoContainer{
+    background-color: rgba(138, 138, 138, 0.849);
+    border-radius: 8px;
+    padding: 15px;
+    margin-left: 240px;
+    margin-right: 80px;
+}
+
+.dataContainer{
+    display: flex;
+}
+
+.teams{
+    margin-left: 30%;
 }
